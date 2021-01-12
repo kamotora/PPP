@@ -20,7 +20,7 @@ BinarySemaphore::~BinarySemaphore() {
 void BinarySemaphore::open() {
         while (ReleaseSemaphore(sem, 1, NULL) == WAIT_TIMEOUT)
         {
-            wcout << "Semaphore " << name << " timeout end in open, check is game ended\n";
+//            wcout << "Semaphore " << name << " timeout end in open, check is game ended\n";
             if(endGameSignal->isSignal())
                 terminateFunc();
         }
@@ -30,7 +30,7 @@ void BinarySemaphore::open() {
 void BinarySemaphore::close(DWORD milliseconds) {
     while (WaitForSingleObject(sem, milliseconds) == WAIT_TIMEOUT)
     {
-            wcout << "Semaphore " << name << " timeout end in close, check is game ended\n";
+//            wcout << "Semaphore " << name << " timeout end in close, check is game ended\n";
         if(endGameSignal->isSignal())
             terminateFunc();
     }

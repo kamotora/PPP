@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../lib/ArrayIntegerChannel.h"
-#include "../lib/IntegerChannel.h"
+#include "../../lib/ArrayIntegerChannel.h"
+#include "../../lib/IntegerChannel.h"
 
 void terminateCoach() {
     wcout << "Coach end game!\n";

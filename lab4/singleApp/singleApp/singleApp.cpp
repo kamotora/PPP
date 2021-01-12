@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include "lib/myrandom.h"
+#include "../../lib/myrandom.h"
 #include "coach.h"
 #include "defender.h"
 #include "doctor.h"

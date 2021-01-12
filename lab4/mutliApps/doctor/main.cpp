@@ -1,7 +1,7 @@
 #include <iostream>
-#include "../lib/ArrayIntegerChannel.h"
-#include "../lib/myrandom.h"
-#include "../lib/IntegerChannel.h"
+#include "../../lib/ArrayIntegerChannel.h"
+#include "../../lib/myrandom.h"
+#include "../../lib/IntegerChannel.h"
 
 void terminateDoctor(){
     wcout << "Doctor end game!\n";

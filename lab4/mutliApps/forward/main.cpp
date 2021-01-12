@@ -1,7 +1,7 @@
 #include <iostream>
-#include "../lib/ArrayIntegerChannel.h"
-#include "../lib/IntegerChannel.h"
-#include "../lib/myrandom.h"
+#include "../../lib/ArrayIntegerChannel.h"
+#include "../../lib/IntegerChannel.h"
+#include "../../lib/myrandom.h"
 
 
 void terminateForward(){

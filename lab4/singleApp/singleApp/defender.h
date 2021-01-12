@@ -2,10 +2,10 @@
 
 #include <iostream>
 #include <windows.h>
-#include "lib/Constants.h"
-#include "lib/IntegerChannel.h"
-#include "lib/BinarySemaphore.h"
-#include "lib/ArrayIntegerChannel.h"
+#include "../../lib/Constants.h"
+#include "../../lib/IntegerChannel.h"
+#include "../../lib/BinarySemaphore.h"
+#include "../../lib/ArrayIntegerChannel.h"
 
 using namespace std;
 

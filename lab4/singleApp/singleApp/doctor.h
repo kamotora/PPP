@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <windows.h>
-#include "lib/Constants.h"
-#include "lib/IntegerChannel.h"
-#include "lib/BinarySemaphore.h"
+#include "../../lib/Constants.h"
+#include "../../lib/IntegerChannel.h"
+#include "../../lib/BinarySemaphore.h"
 
 using namespace std;
 
@@ -31,8 +31,6 @@ DWORD WINAPI DoctorThreadProc(PVOID arg) {
         // Говорим тренеру, что игрок устал
         switch (tiredPlayer) {
             case Owner::FORWARD:
-                test.setSignal();
-                ExitThread(0);
                 coachChannel.setData(new Message(Owner::DOCTOR, FORWARD_TIRED_MSG));
                 cout << "Doctor told coach that forward was tired\n";
                 break;
