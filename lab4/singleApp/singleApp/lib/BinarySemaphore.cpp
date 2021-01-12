@@ -1,6 +1,8 @@
 #include "BinarySemaphore.h"
 
-BinarySemaphore::BinarySemaphore(const wstring &name, int startState) {
+BinarySemaphore::BinarySemaphore(const wstring &name, int startState, functionType termFunc) {
+    this->terminateFunc = termFunc;
+    this->endGameSignal = new Signal();
     this->name = name;
     sem = OpenSemaphoreW(SEMAPHORE_ALL_ACCESS, true, name.c_str());
     int s = (startState > 0) ? 1 : 0;
@@ -15,13 +17,21 @@ BinarySemaphore::~BinarySemaphore() {
 
 
 // V()
-bool BinarySemaphore::open() {
-    BOOL res = ReleaseSemaphore(sem, 1, NULL);
-    return res == WAIT_TIMEOUT;
+void BinarySemaphore::open() {
+        while (ReleaseSemaphore(sem, 1, NULL) == WAIT_TIMEOUT)
+        {
+            wcout << "Semaphore " << name << " timeout end in open, check is game ended\n";
+            if(endGameSignal->isSignal())
+                terminateFunc();
+        }
 }
 
 // P()
-bool BinarySemaphore::close(DWORD milliseconds) {
-    DWORD result = WaitForSingleObject(sem, milliseconds);
-    return result != WAIT_TIMEOUT;
+void BinarySemaphore::close(DWORD milliseconds) {
+    while (WaitForSingleObject(sem, milliseconds) == WAIT_TIMEOUT)
+    {
+            wcout << "Semaphore " << name << " timeout end in close, check is game ended\n";
+        if(endGameSignal->isSignal())
+            terminateFunc();
+    }
 }

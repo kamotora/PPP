@@ -21,9 +21,9 @@ DWORD WINAPI ForwardThreadProc(PVOID arg) {
     cout << "forward skill = " << skill << endl;
     cout << "Forward start game!\n";
     //S1
-    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE);
+    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE,0,terminateForward);
     //S2
-    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE);
+    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE,0,terminateForward);
     //C1
     IntegerChannel getBallChannel(GET_BALL_CHANNEL,terminateForward);
     //R1

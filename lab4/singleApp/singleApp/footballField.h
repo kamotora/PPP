@@ -16,7 +16,7 @@ void terminateField(){
 DWORD WINAPI FootballFieldThreadProc(PVOID arg) {
     cout << "Football field start work!\n";
     //S2
-    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE);
+    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE,0,terminateField);
     //C1
     IntegerChannel getBallChannel(GET_BALL_CHANNEL, terminateField);
     //C2

@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "helper.h"
-#include "Message.h"
 #include "Constants.h"
 
 using namespace std;

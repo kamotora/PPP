@@ -5,9 +5,9 @@ ArrayIntegerChannel::ArrayIntegerChannel(const wstring &name, functionType termi
     const wstring nameEmptySemaphore = L"empty_" + name;
     const wstring fileName = L"file_" + name;
     this->name = name;
-    this->emptySemaphore = new BinarySemaphore(nameEmptySemaphore, 1);
+    this->emptySemaphore = new BinarySemaphore(nameEmptySemaphore, 1, terminateFunc);
     this->endGameSignal = new Signal();
-
+    this->terminateFunc = terminateFunc;
     this->fileMem = OpenFileMappingW(FILE_MAP_ALL_ACCESS, false, fileName.c_str());
     if (this->fileMem == NULL) {
         this->fileMem = CreateFileMappingW(
@@ -43,12 +43,7 @@ ArrayIntegerChannel::~ArrayIntegerChannel() {
 }
 
 void ArrayIntegerChannel::setData(Message *data, int timeout) {
-    while (!this->emptySemaphore->close(timeout))
-    {
-        wcout << "Channel " << name << " timeout end, check is game ended\n";
-        if(endGameSignal->isSignal())
-            terminateFunc();
-    }
+    this->emptySemaphore->close(timeout);
     addMessage(data);
 //    wcout << L"Data " << name << L" setted: " << data->toWstring() << endl;
     this->emptySemaphore->open();
@@ -56,17 +51,21 @@ void ArrayIntegerChannel::setData(Message *data, int timeout) {
 
 Message *ArrayIntegerChannel::getData(Owner receiver, int timeout) {
     Message *message;
+    int i = 0;
     do {
-        while (!this->emptySemaphore->close(timeout))
-        {
-            wcout << "Channel " << name << " timeout end, check is game ended\n";
-            if(endGameSignal->isSignal())
+        this->emptySemaphore->close(timeout);
+        // Если много попыток получить сообщение, может игра окончена?
+        if (i > 5) {
+            if (endGameSignal->isSignal())
                 terminateFunc();
+            else
+                i = 0;
         }
         message = findMessageInBuffer(receiver);
         this->emptySemaphore->open();
         if (message == nullptr)
             Sleep(300);
+        i++;
     } while (message == nullptr);
 //    wcout << L"Data " << name << L" getted: " << message->toWstring() << endl;
     return message;

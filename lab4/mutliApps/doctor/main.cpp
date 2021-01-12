@@ -8,8 +8,16 @@ void terminateDoctor(){
     system("pause");
     ExitThread(0);
 }
+BOOL ExitHandler(DWORD fdwCtrlType) {
+    Signal endGame;
+    endGame.setSignal();
+    return TRUE;
+}
 
 int main() {
+    SetConsoleCtrlHandler(
+            (PHANDLER_ROUTINE) ExitHandler,  // функция обработчика
+            TRUE);
     cout << "Doctor start work" << endl;
     //C4
     IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL, terminateDoctor);

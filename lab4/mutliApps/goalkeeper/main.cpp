@@ -8,8 +8,16 @@ void terminateGoalkeeper() {
     system("pause");
     ExitThread(0);
 }
+BOOL ExitHandler(DWORD fdwCtrlType) {
+    Signal endGame;
+    endGame.setSignal();
+    return TRUE;
+}
 
 int main() {
+    SetConsoleCtrlHandler(
+            (PHANDLER_ROUTINE) ExitHandler,  // функция обработчика
+            TRUE);
     cout << "Goalkeeper start game" << endl;
     int power = MAX_POWER;
     const int skill = Random::nextInt(MAX_SKILL);
@@ -22,7 +30,6 @@ int main() {
     IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL, terminateGoalkeeper);
     //C5
     ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL, terminateGoalkeeper);
-    int i = 0;
     while (true) {
         auto kickInfo = fieldGoalkeeperRendCh1.getData();
         int goalkeeperChance = countChance(power, skill);

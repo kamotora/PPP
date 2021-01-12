@@ -8,11 +8,19 @@ void terminateField(){
     system("pause");
     ExitThread(0);
 }
+BOOL ExitHandler(DWORD fdwCtrlType) {
+    Signal endGame;
+    endGame.setSignal();
+    return TRUE;
+}
 
-int main(){
+int main() {
+    SetConsoleCtrlHandler(
+            (PHANDLER_ROUTINE) ExitHandler,  // функция обработчика
+            TRUE);
     cout << "Football field start work!\n";
     //S2
-    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE);
+    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE, 0, terminateField);
     //C1
     IntegerChannel getBallChannel(GET_BALL_CHANNEL, terminateField);
     //C2

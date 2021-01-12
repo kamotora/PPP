@@ -9,9 +9,18 @@ void terminateDefender(){
     ExitThread(0);
 }
 
-int main(){
+BOOL ExitHandler(DWORD fdwCtrlType) {
+    Signal endGame;
+    endGame.setSignal();
+    return TRUE;
+}
+
+int main() {
+    SetConsoleCtrlHandler(
+            (PHANDLER_ROUTINE) ExitHandler,  // функция обработчика
+            TRUE);
     int power = MAX_POWER;
-    const int skill = Random::nextInt(MAX_SKILL);
+    const int skill = 79;
 
     cout << "Defender start game \n" << endl;
 

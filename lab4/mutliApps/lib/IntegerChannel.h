@@ -1,7 +1,6 @@
 #pragma once
 
 #include "BinarySemaphore.h"
-#include "IntegerSemaphore.h"
 #include <iostream>
 #include "helper.h"
 #include "Message.h"

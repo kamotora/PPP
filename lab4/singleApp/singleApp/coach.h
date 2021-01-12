@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void terminateCoach(){
+void terminateCoach() {
     wcout << "Coach end game!\n";
     ExitThread(0);
 }
@@ -17,7 +17,7 @@ void terminateCoach(){
 DWORD WINAPI CoachThreadProc(PVOID arg) {
     cout << "Coach start game!\n";
     //S1
-    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE);
+    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE, 0, terminateCoach);
     //C6
     IntegerChannel coachChannel(COACH_CHANNEL, terminateCoach);
     //C7
@@ -82,7 +82,7 @@ DWORD WINAPI CoachThreadProc(PVOID arg) {
         // Удаляем, т.к. прочитали и уже не пригодится
         delete message;
         // Сыграли достаточно кол-во раз, завершаем игру
-        if(i == COUNT_GAMES){
+        if (i == COUNT_GAMES) {
             endGameSignal.setSignal();
             cout << "=== END GAME!!! Coach end game and say other players go to home! ===\n";
             ExitThread(0);

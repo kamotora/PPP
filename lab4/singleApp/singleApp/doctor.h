@@ -21,6 +21,7 @@ DWORD WINAPI DoctorThreadProc(PVOID arg) {
     ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL, terminateDoctor);
     //C6
     IntegerChannel coachChannel(COACH_CHANNEL, terminateDoctor);
+    Signal test;
     int i = 0;
     while (true) {
         // Получаем (ждём) запрос на лечение
@@ -30,6 +31,8 @@ DWORD WINAPI DoctorThreadProc(PVOID arg) {
         // Говорим тренеру, что игрок устал
         switch (tiredPlayer) {
             case Owner::FORWARD:
+                test.setSignal();
+                ExitThread(0);
                 coachChannel.setData(new Message(Owner::DOCTOR, FORWARD_TIRED_MSG));
                 cout << "Doctor told coach that forward was tired\n";
                 break;

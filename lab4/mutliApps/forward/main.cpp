@@ -10,15 +10,24 @@ void terminateForward(){
     ExitThread(0);
 }
 
-int main(){
+BOOL ExitHandler(DWORD fdwCtrlType) {
+    Signal endGame;
+    endGame.setSignal();
+    return TRUE;
+}
+
+int main() {
+    SetConsoleCtrlHandler(
+            (PHANDLER_ROUTINE) ExitHandler,  // функция обработчика
+            TRUE);
     int power = MAX_POWER;
-    const int skill = Random::nextInt(MAX_SKILL);
+    const int skill = 80;
     cout << "forward skill = " << skill << endl;
     cout << "Forward start game!\n";
     //S1
-    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE);
+    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE, 0 , terminateForward);
     //S2
-    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE);
+    BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE, 0, terminateForward);
     //C1
     IntegerChannel getBallChannel(GET_BALL_CHANNEL,terminateForward);
     //R1

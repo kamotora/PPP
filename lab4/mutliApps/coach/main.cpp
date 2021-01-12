@@ -2,16 +2,25 @@
 #include "../lib/ArrayIntegerChannel.h"
 #include "../lib/IntegerChannel.h"
 
-void terminateCoach(){
+void terminateCoach() {
     wcout << "Coach end game!\n";
     system("pause");
     ExitThread(0);
 }
 
+BOOL ExitHandler(DWORD fdwCtrlType) {
+    Signal endGame;
+    endGame.setSignal();
+    return TRUE;
+}
+
 int main() {
+    SetConsoleCtrlHandler(
+            (PHANDLER_ROUTINE) ExitHandler,  // функция обработчика
+            TRUE);
     cout << "Coach start game!\n";
     //S1
-    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE);
+    BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE,0, terminateCoach);
     //C6
     IntegerChannel coachChannel(COACH_CHANNEL, terminateCoach);
     //C7
@@ -76,9 +85,11 @@ int main() {
         // Удаляем, т.к. прочитали и уже не пригодится
         delete message;
         // Сыграли достаточно кол-во раз, завершаем игру
-        if(i == COUNT_GAMES){
+        if (i == COUNT_GAMES) {
             endGameSignal.setSignal();
             cout << "=== END GAME!!! Coach end game and say other players go to home! ===\n";
+            // Чтобы консоль сразу не закрылась
+            system("pause");
             ExitThread(0);
         }
         Sleep(PAUSE_BETWEEN_GAMES);
