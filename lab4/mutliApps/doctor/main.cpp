@@ -1,19 +1,22 @@
 #include <iostream>
 #include "../lib/ArrayIntegerChannel.h"
 #include "../lib/myrandom.h"
-#include "../lib/IntegerSemaphore.h"
 #include "../lib/IntegerChannel.h"
+
+void terminateDoctor(){
+    wcout << "Doctor end game!\n";
+    system("pause");
+    ExitThread(0);
+}
 
 int main() {
     cout << "Doctor start work" << endl;
-    IntegerSemaphore endSemaphore(END_GAME_SEMAPHORE);
     //C4
-    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL);
+    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL, terminateDoctor);
     //C5
-    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL);
+    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL, terminateDoctor);
     //C6
-    IntegerChannel coachChannel(COACH_CHANNEL);
-    int i = 0;
+    IntegerChannel coachChannel(COACH_CHANNEL, terminateDoctor);
     while (true) {
         // Получаем (ждём) запрос на лечение
         auto request = doctorRequestChannel.getData();
@@ -57,10 +60,6 @@ int main() {
                 cerr << "Unknown relax player type\n";
         }
         delete request;
-        // конец игры
-        if (endSemaphore.close(PAUSE_BETWEEN_GAMES)) {
-            break;
-        }
+        Sleep(PAUSE_BETWEEN_GAMES);
     }
-    return 0;
 }

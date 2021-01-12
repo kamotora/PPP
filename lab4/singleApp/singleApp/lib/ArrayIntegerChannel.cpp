@@ -1,12 +1,12 @@
 #include "ArrayIntegerChannel.h"
 
-ArrayIntegerChannel::ArrayIntegerChannel(const wstring &name) {
+ArrayIntegerChannel::ArrayIntegerChannel(const wstring &name, functionType terminateFunc) {
     const wstring nameFreeSemaphore = L"free_" + name;
     const wstring nameEmptySemaphore = L"empty_" + name;
     const wstring fileName = L"file_" + name;
     this->name = name;
     this->emptySemaphore = new BinarySemaphore(nameEmptySemaphore, 1);
-
+    this->endGameSignal = new Signal();
 
     this->fileMem = OpenFileMappingW(FILE_MAP_ALL_ACCESS, false, fileName.c_str());
     if (this->fileMem == NULL) {
@@ -34,14 +34,21 @@ ArrayIntegerChannel::ArrayIntegerChannel(const wstring &name) {
 }
 
 ArrayIntegerChannel::~ArrayIntegerChannel() {
+    wcout << "Array Channel " << name << " start deleted\n";
+    endGameSignal->setSignal();
     delete emptySemaphore;
+    delete endGameSignal;
     UnmapViewOfFile(buffer);
     CloseHandle(this->fileMem);
 }
 
 void ArrayIntegerChannel::setData(Message *data, int timeout) {
-    if(!this->emptySemaphore->close(timeout))
-        ExitThread(0);
+    while (!this->emptySemaphore->close(timeout))
+    {
+        wcout << "Channel " << name << " timeout end, check is game ended\n";
+        if(endGameSignal->isSignal())
+            terminateFunc();
+    }
     addMessage(data);
 //    wcout << L"Data " << name << L" setted: " << data->toWstring() << endl;
     this->emptySemaphore->open();
@@ -50,8 +57,12 @@ void ArrayIntegerChannel::setData(Message *data, int timeout) {
 Message *ArrayIntegerChannel::getData(Owner receiver, int timeout) {
     Message *message;
     do {
-        if(!this->emptySemaphore->close(timeout))
-            ExitThread(0);
+        while (!this->emptySemaphore->close(timeout))
+        {
+            wcout << "Channel " << name << " timeout end, check is game ended\n";
+            if(endGameSignal->isSignal())
+                terminateFunc();
+        }
         message = findMessageInBuffer(receiver);
         this->emptySemaphore->open();
         if (message == nullptr)

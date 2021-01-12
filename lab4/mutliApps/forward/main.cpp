@@ -1,38 +1,42 @@
 #include <iostream>
-#include "../lib/IntegerSemaphore.h"
 #include "../lib/ArrayIntegerChannel.h"
 #include "../lib/IntegerChannel.h"
 #include "../lib/myrandom.h"
 
-int main() {
+
+void terminateForward(){
+    wcout << "Forward end game!\n";
+    system("pause");
+    ExitThread(0);
+}
+
+int main(){
     int power = MAX_POWER;
     const int skill = Random::nextInt(MAX_SKILL);
     cout << "forward skill = " << skill << endl;
     cout << "Forward start game!\n";
-    IntegerSemaphore endSemaphore(END_GAME_SEMAPHORE);
     //S1
     BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE);
     //S2
     BinarySemaphore getBallSemaphore(GET_BALL_SEMAPHORE);
     //C1
-    IntegerChannel getBallChannel(GET_BALL_CHANNEL);
+    IntegerChannel getBallChannel(GET_BALL_CHANNEL,terminateForward);
     //R1
-    IntegerChannel forwardDefenderRendCh1(FORWARD_DEFENDER_RENDEZVOUS_CH1);
-    IntegerChannel forwardDefenderRendCh2(FORWARD_DEFENDER_RENDEZVOUS_CH2);
+    IntegerChannel forwardDefenderRendCh1(FORWARD_DEFENDER_RENDEZVOUS_CH1,terminateForward);
+    IntegerChannel forwardDefenderRendCh2(FORWARD_DEFENDER_RENDEZVOUS_CH2,terminateForward);
     //C2
-    IntegerChannel returnBallChannel(RETURN_BALL_CHANNEL);
+    IntegerChannel returnBallChannel(RETURN_BALL_CHANNEL,terminateForward);
     //C3
-    IntegerChannel isGoalChannel(FORWARD_FIELD_CHANNEL);
+    IntegerChannel isGoalChannel(FORWARD_FIELD_CHANNEL,terminateForward);
     //C4
-    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL);
+    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL,terminateForward);
     //C5
-    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL);
+    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL,terminateForward);
     //C6
-    IntegerChannel coachChannel(COACH_CHANNEL);
+    IntegerChannel coachChannel(COACH_CHANNEL,terminateForward);
     //C7
-    IntegerChannel answerToForwardChannel(ANSWER_FORWARD_CHANNEL);
+    IntegerChannel answerToForwardChannel(ANSWER_FORWARD_CHANNEL,terminateForward);
 
-    int i = 0;
     int goalInfo = 0;
     while (true) {
         // Ждём команды тренера на начало игры
@@ -96,10 +100,7 @@ int main() {
         // Удаляем, т.к. прочитали и уже не пригодится
         delete defenderChance;
         delete ball;
-        // конец игры
-        if (endSemaphore.close(PAUSE_BETWEEN_GAMES)) {
-            break;
-        }
+        Sleep(PAUSE_BETWEEN_GAMES);
     }
-    return 0;
 }
+

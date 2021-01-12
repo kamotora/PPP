@@ -1,32 +1,36 @@
 #include <iostream>
 #include "../lib/ArrayIntegerChannel.h"
 #include "../lib/myrandom.h"
-#include "../lib/IntegerSemaphore.h"
 #include "../lib/IntegerChannel.h"
 
-int main() {
+void terminateDefender(){
+    wcout << "Defender end game!\n";
+    system("pause");
+    ExitThread(0);
+}
+
+int main(){
     int power = MAX_POWER;
     const int skill = Random::nextInt(MAX_SKILL);
 
     cout << "Defender start game \n" << endl;
 
     cout << "defender skill = " << skill << endl;
-    IntegerSemaphore endSemaphore(END_GAME_SEMAPHORE);
     //R1
-    IntegerChannel forwardDefenderRendCh1(FORWARD_DEFENDER_RENDEZVOUS_CH1);
-    IntegerChannel forwardDefenderRendCh2(FORWARD_DEFENDER_RENDEZVOUS_CH2);
+    IntegerChannel forwardDefenderRendCh1(FORWARD_DEFENDER_RENDEZVOUS_CH1, terminateDefender);
+    IntegerChannel forwardDefenderRendCh2(FORWARD_DEFENDER_RENDEZVOUS_CH2, terminateDefender);
     //C2
-    IntegerChannel returnBallChannel(RETURN_BALL_CHANNEL);
+    IntegerChannel returnBallChannel(RETURN_BALL_CHANNEL, terminateDefender);
     //C4
-    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL);
+    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL, terminateDefender);
     //C5
-    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL);
-    int i = 0;
+    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL, terminateDefender);
     while (true) {
         // Передаём информацию об усталости и навыках защитника
         int defenderChance = countChance(power, skill);
         Message *initMessage = new Message(Owner::DEFENDER, defenderChance, State::INIT_DATA);
         forwardDefenderRendCh1.setData(initMessage);
+        cout << "Defender try to get ball from forward\n";
         auto getResult = forwardDefenderRendCh2.getData();
         defenderChance = getResult->data;
         if (defenderChance == FORWARD_NOT_SAVE_BALL) // Получили мяч
@@ -50,11 +54,8 @@ int main() {
             cout << "Defender relaxed. Power = " << power << "\n";
             delete result;
         }
-        // конец игры
-        if (endSemaphore.close(PAUSE_BETWEEN_GAMES)) {
-            break;
-        }
         delete getResult;
+        Sleep(PAUSE_BETWEEN_GAMES);
     }
-    return 0;
 }
+

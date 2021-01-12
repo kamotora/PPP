@@ -14,10 +14,9 @@ add_executable(
         ../lib/helper.h
         ../lib/IntegerChannel.cpp
         ../lib/IntegerChannel.h
-        ../lib/IntegerSemaphore.cpp
-        ../lib/IntegerSemaphore.h
+        ../lib/Signal.cpp
+        ../lib/Signal.h
         ../lib/Message.cpp
         ../lib/Message.h
         ../lib/myrandom.h
-        main.cpp
-)
+        main.cpp)

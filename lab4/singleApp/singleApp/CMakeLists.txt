@@ -27,4 +27,4 @@ add_executable(singleApp
         forward.h
         goalkeeper.h
         singleApp.cpp
-        )
+        lib/Signal.cpp lib/Signal.h)

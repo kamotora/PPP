@@ -1,9 +1,11 @@
 #pragma once
 
-#include "../lib/BinarySemaphore.h"
+#include "BinarySemaphore.h"
+#include "IntegerSemaphore.h"
 #include <iostream>
 #include "helper.h"
 #include "Message.h"
+#include "Signal.h"
 
 using namespace std;
 
@@ -13,8 +15,10 @@ private:
     HANDLE fileMem;
     wstring name;
     void *buffer;
+    Signal *endGameSignal;
+    functionType terminateFunc;
 public:
-    explicit IntegerChannel(const wstring &name);
+    IntegerChannel(const wstring &name, functionType terminateFunc = nullptr);
 
     void setData(Message *data, int timeout = MAX_WAIT_TIME);
 

@@ -1,18 +1,22 @@
 #include <iostream>
-#include "../lib/IntegerSemaphore.h"
 #include "../lib/ArrayIntegerChannel.h"
 #include "../lib/IntegerChannel.h"
 
-int main() {
+void terminateCoach(){
+    wcout << "Coach end game!\n";
+    system("pause");
+    ExitThread(0);
+}
 
+int main() {
     cout << "Coach start game!\n";
-    IntegerSemaphore endSemaphore(END_GAME_SEMAPHORE);
     //S1
     BinarySemaphore commandCoachSemaphore(COMMAND_COACH_SEMAPHORE);
     //C6
-    IntegerChannel coachChannel(COACH_CHANNEL);
+    IntegerChannel coachChannel(COACH_CHANNEL, terminateCoach);
     //C7
-    IntegerChannel answerToForwardChannel(ANSWER_FORWARD_CHANNEL);
+    IntegerChannel answerToForwardChannel(ANSWER_FORWARD_CHANNEL, terminateCoach);
+    Signal endGameSignal;
     bool isDefenderTired = false, isGoalKeeperTired = false, isForwardTired = false;
     int i = 0;
     while (true) {
@@ -73,13 +77,10 @@ int main() {
         delete message;
         // Сыграли достаточно кол-во раз, завершаем игру
         if(i == COUNT_GAMES){
-            endSemaphore.open(6);
-            cout << "Coach end game and say other players go to home!\n";
+            endGameSignal.setSignal();
+            cout << "=== END GAME!!! Coach end game and say other players go to home! ===\n";
+            ExitThread(0);
         }
-        // конец игры
-        if (endSemaphore.close(PAUSE_BETWEEN_GAMES)) {
-            break;
-        }
+        Sleep(PAUSE_BETWEEN_GAMES);
     }
-    return 0;
 }

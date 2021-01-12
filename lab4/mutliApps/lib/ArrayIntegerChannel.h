@@ -6,6 +6,7 @@
 #include "Message.h"
 #include "BinarySemaphore.h"
 #include "vector"
+#include "Signal.h"
 
 using namespace std;
 
@@ -17,9 +18,10 @@ private:
     void *buffer;
     BOOL writeMessages(vector<Message *> messages);
     vector<struct Message *> getMessages();
-
+    Signal *endGameSignal;
+    functionType terminateFunc;
 public:
-    ArrayIntegerChannel(const wstring &name);
+    ArrayIntegerChannel(const wstring &name, functionType terminateFunc = nullptr);
 
     void setData(Message *data, int timeout = MAX_WAIT_TIME);
 

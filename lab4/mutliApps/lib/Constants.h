@@ -17,7 +17,8 @@ static const wstring FORWARD_DEFENDER_RENDEZVOUS_CH1 = L"REND_1_CH1";
 static const wstring FORWARD_DEFENDER_RENDEZVOUS_CH2 = L"REND_1_CH2";
 static const wstring FIELD_GOALKEEPER_RENDEZVOUS_CH1 = L"REND_2_CH1";
 static const wstring FIELD_GOALKEEPER_RENDEZVOUS_CH2 = L"REND_2_CH2";
-static const int MAX_WAIT_TIME = 3000;
+static const int MAX_WAIT_TIME = 10000;
+static const int SIGNAL_WAIT_TIME = 3000;
 static const int FILE_SIZE = 4096;
 //Максимальный уровень сил
 static const int MAX_POWER = 100;
@@ -27,7 +28,7 @@ static const int MAX_POWER_DIFF = 30;
 static const int MAX_SKILL = 100;
 static const int COUNT_GAMES = 10;
 // Пауза между играми
-static const int PAUSE_BETWEEN_GAMES = 300;
+static const int PAUSE_BETWEEN_GAMES = 1000;
 
 static const int FORWARD_TIRED_MSG = 1;
 static const int DEFENDER_TIRED_MSG = 2;
@@ -47,3 +48,4 @@ static const int FORWARD_NOT_SAVE_BALL = -1;
 
 // Признак передачи мяча от одного участника игры другому
 static const int BALL_MSG = 10;
+typedef void (*functionType)();

@@ -8,15 +8,19 @@
 
 using namespace std;
 
+void terminateDoctor(){
+    wcout << "Doctor end game!\n";
+    ExitThread(0);
+}
+
 DWORD WINAPI DoctorThreadProc(PVOID arg) {
     cout << "Doctor start work" << endl;
-    IntegerSemaphore endSemaphore(END_GAME_SEMAPHORE);
     //C4
-    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL);
+    IntegerChannel doctorRequestChannel(DOCTOR_REQUEST_CHANNEL, terminateDoctor);
     //C5
-    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL);
+    ArrayIntegerChannel doctorResponseChannel(DOCTOR_RESPONSE_CHANNEL, terminateDoctor);
     //C6
-    IntegerChannel coachChannel(COACH_CHANNEL);
+    IntegerChannel coachChannel(COACH_CHANNEL, terminateDoctor);
     int i = 0;
     while (true) {
         // Получаем (ждём) запрос на лечение
@@ -61,10 +65,6 @@ DWORD WINAPI DoctorThreadProc(PVOID arg) {
                 cerr << "Unknown relax player type\n";
         }
         delete request;
-        // конец игры
-        if (endSemaphore.close(PAUSE_BETWEEN_GAMES)) {
-            break;
-        }
+        Sleep(PAUSE_BETWEEN_GAMES);
     }
-    ExitThread(0);
 }
