@@ -1,0 +1,10 @@
+Defender start game 
+
+defender skill = 79
+Для продолжения нажмите любую клавишу . . . 
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender end game!

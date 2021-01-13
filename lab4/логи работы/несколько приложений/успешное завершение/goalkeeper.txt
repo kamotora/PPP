@@ -1,0 +1,12 @@
+Goalkeeper start game
+goalkeeper skill = 56
+Goalkeeper  playing bad: GOAL!
+Goalkeeper  playing good: NOT GOAL!
+Goalkeeper  playing good: NOT GOAL!
+Goalkeeper  playing bad: GOAL!
+Channel REND_2_CH1 timeout end, check is game ended
+Goalkeeper  playing bad: GOAL!
+Goalkeeper  playing bad: GOAL!
+Для продолжения нажмите любую клавишу . . . 
+Channel REND_2_CH1 timeout end, check is game ended
+Goalkeeper end game!

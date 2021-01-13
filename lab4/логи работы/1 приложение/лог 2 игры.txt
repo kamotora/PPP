@@ -1,0 +1,41 @@
+Start program!
+forward skill = 17
+Forward start game!
+Football field start work!
+Field set ball to forward for start forwarding
+Goalkeeper start game
+goalkeeper skill = 28
+Coach start game!
+
+Forward get ball and start forwarding
+Defender start game
+
+defender skill = 79
+Defender try to get ball from forward
+Defender get ball from forward
+Forward send ball to defender
+Forward told coach about game result
+Field get ball from defender, forwarding ended
+============ Game 0 ended ===========
+Coach say to forward: You not make goal! Bad, try once more!!!
+Doctor start work
+Defender try to get ball from forward
+Field set ball to forward for start forwarding
+
+Forward get ball and start forwarding
+Forward send ball to defender
+Defender get ball from forward
+Forward told coach about game result
+============ Game 1 ended ===========
+=== END GAME!!! Coach end game and say other players go to home! ===
+Field get ball from defender, forwarding ended
+Coach say to forward: You not make goal! Bad, try once more!!!
+Field set ball to forward for start forwarding
+Defender try to get ball from forward
+Goalkeeper end game!
+Doctor end game!
+Football field end game!
+Forward end game!
+Defender end game!
+End program!
+Для продолжения нажмите любую клавишу . . .

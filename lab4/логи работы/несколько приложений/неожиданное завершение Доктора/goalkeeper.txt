@@ -1,0 +1,6 @@
+Goalkeeper start game
+goalkeeper skill = 93
+Goalkeeper  playing good: NOT GOAL!
+Goalkeeper  playing good: NOT GOAL!
+Для продолжения нажмите любую клавишу . . . 
+Goalkeeper end game!

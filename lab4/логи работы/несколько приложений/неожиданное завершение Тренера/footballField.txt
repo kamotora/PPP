@@ -1,0 +1,9 @@
+Для продолжения нажмите любую клавишу . . . Football field start work!
+Field set ball to forward for start forwarding
+field getting ball from forward and will send them to goalkeeper
+field send ball to goalkeeper
+Field set ball to forward for start forwarding
+field getting ball from forward and will send them to goalkeeper
+field send ball to goalkeeper
+Field set ball to forward for start forwarding
+Football field end game!

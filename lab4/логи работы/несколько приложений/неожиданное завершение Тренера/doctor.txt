@@ -1,0 +1,3 @@
+Doctor start work
+Для продолжения нажмите любую клавишу . . . 
+Doctor end game!

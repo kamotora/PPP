@@ -1,0 +1,10 @@
+Doctor start work
+Для продолжения нажмите любую клавишу . . . 
+Doctor told coach that forward was tired
+Doctor told coach that defender was tired
+Doctor told coach that forward was tired
+Doctor told coach that forward was tired
+Doctor told coach that forward was tired
+Doctor told coach that defender was tired
+Channel DOC1_CHANNEL timeout end, check is game ended
+Doctor end game!

@@ -1,0 +1,31 @@
+Defender start game 
+
+defender skill = 11
+Для продолжения нажмите любую клавишу . . . 
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender not get ball 
+Defender relaxed. Power = 77
+Defender try to get ball from forward
+Defender get ball from forward
+Defender try to get ball from forward
+Defender get ball from forward
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Defender not get ball 
+Defender relaxed. Power = 52
+Defender try to get ball from forward
+Defender not get ball 
+Defender try to get ball from forward
+Channel REND_1_CH2 timeout end, check is game ended
+Defender end game!

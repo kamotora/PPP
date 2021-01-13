@@ -1,0 +1,172 @@
+Start program!
+forward skill = 80
+Forward start game!
+Football field start work!
+Field set ball to forward for start forwarding
+Goalkeeper start game
+goalkeeper skill = 60
+Coach start game!
+
+Forward get ball and start forwarding
+Defender start game
+
+defender skill = 73
+Defender try to get ball from forward
+Forward save ball and continue forwarding
+Defender not get ball
+field getting ball from forward and will send them to goalkeeper
+field send ball to goalkeeper
+Goalkeeper  playing bad: GOAL!
+Forward make goal!
+Forward told coach about game result
+============ Game 0 ended ===========
+Coach say to forward: You make goal! Well done!!!
+Doctor start work
+Defender try to get ball from forward
+Field set ball to forward for start forwarding
+
+Forward get ball and start forwarding
+Forward send ball to defender
+Forward told coach about game result
+Defender get ball from forward
+============ Game 1 ended ===========
+Field get ball from defender, forwarding ended
+Coach say to forward: You not make goal! Bad, try once more!!!
+Field set ball to forward for start forwarding
+Defender try to get ball from forward
+
+Forward get ball and start forwarding
+Forward send ball to defender
+Forward told coach about game result
+Defender get ball from forward
+Field get ball from defender, forwarding ended
+============ Game 2 ended ===========
+Coach say to forward: You not make goal! Bad, try once more!!!
+Field set ball to forward for start forwarding
+
+Forward get ball and start forwarding
+Forward send ball to defender
+Forward tired (power = -7) and send request to doctor
+Coach mark forward as tired
+Defender try to get ball from forward
+Defender get ball from forward
+Doctor told coach that forward was tired
+Field get ball from defender, forwarding ended
+Forward relaxed. Power = 85
+Field set ball to forward for start forwarding
+We have tired players, coach not start game
+Coach mark forward as relaxed
+Defender try to get ball from forward
+Forward told coach about game result
+============ Game 3 ended ===========
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Defender not get ball
+field getting ball from forward and will send them to goalkeeper
+field send ball to goalkeeper
+Goalkeeper  playing bad: GOAL!
+Forward make goal!
+Forward told coach about game result
+============ Game 4 ended ===========
+Coach say to forward: You make goal! Well done!!!
+Field set ball to forward for start forwarding
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Defender try to get ball from forward
+Defender not get ball
+field getting ball from forward and will send them to goalkeeper
+field send ball to goalkeeper
+Coach mark defender as tired
+Doctor told coach that defender was tired
+Goalkeeper  playing good: NOT GOAL!
+Forward not make goal
+Defender relaxed. Power = 64
+Field set ball to forward for start forwarding
+We have tired players, coach not start game
+Coach mark defender as relaxed
+Forward told coach about game result
+Defender try to get ball from forward
+============ Game 5 ended ===========
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward send ball to defender
+Forward tired (power = -11) and send request to doctor
+Coach mark forward as tired
+Defender get ball from forward
+Doctor told coach that forward was tired
+Field get ball from defender, forwarding ended
+Forward relaxed. Power = 58
+Field set ball to forward for start forwarding
+We have tired players, coach not start game
+Defender try to get ball from forward
+Coach mark forward as relaxed
+Forward told coach about game result
+============ Game 6 ended ===========
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Defender not get ball
+field getting ball from forward and will send them to goalkeeper
+field send ball to goalkeeper
+Goalkeeper  playing bad: GOAL!
+Forward make goal!
+Forward told coach about game result
+============ Game 7 ended ===========
+Coach say to forward: You make goal! Well done!!!
+Field set ball to forward for start forwarding
+Defender try to get ball from forward
+
+Forward get ball and start forwarding
+Forward send ball to defender
+Forward tired (power = -4Doctor told coach that forward was tired
+Coach mark forward as tired
+Defender get ball from forward
+) and send request to doctor
+Field get ball from defender, forwarding ended
+Forward relaxed. Power = 85
+Field set ball to forward for start forwarding
+We have tired players, coach not start game
+Coach mark forward as relaxed
+Forward told coach about game result
+============ Game 8 ended ===========
+Doctor told coach that defender was tired
+Coach say to forward: You not make goal! Bad, try once more!!!
+Defender relaxed. Power = 78
+
+Forward get ball and start forwarding
+Coach mark defender as tired
+Defender try to get ball from forward
+Defender not get ball
+Forward save ball and continue forwarding
+field getting ball from forward and will send them to goalkeeper
+field send ball to goalkeeper
+Goalkeeper  playing bad: GOAL!
+Forward make goal!
+We have tired players, coach not start game
+Coach mark defender as relaxed
+Forward told coach about game result
+Defender try to get ball from forward
+Field set ball to forward for start forwarding
+============ Game 9 ended ===========
+=== END GAME!!! Coach end game and say other players go to home! ===
+Coach say to forward: You make goal! Well done!!!
+
+Forward get ball and start forwarding
+Forward send ball to defender
+Defender get ball from forward
+Forward told coach about game result
+Field get ball from defender, forwarding ended
+Field set ball to forward for start forwarding
+Defender try to get ball from forward
+Doctor end game!
+Goalkeeper end game!
+Forward end game!
+Football field end game!
+Defender end game!
+End program!
+Для продолжения нажмите любую клавишу . . .

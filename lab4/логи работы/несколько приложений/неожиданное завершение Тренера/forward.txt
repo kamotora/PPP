@@ -1,0 +1,19 @@
+forward skill = 80
+Для продолжения нажмите любую клавишу . . . 
+Forward start game!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward make goal!
+Forward told coach about game result 
+Coach say to forward: You make goal! Well done!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward make goal!
+Forward told coach about game result 
+Coach say to forward: You make goal! Well done!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward end game!

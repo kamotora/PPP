@@ -40,5 +40,6 @@ int main() {
     WaitForSingleObject(goalkeeperThread, INFINITE);
 
     cout << "End program!\n";
+    system("pause");
     return 0;
 }

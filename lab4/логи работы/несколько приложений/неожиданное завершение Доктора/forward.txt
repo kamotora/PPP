@@ -1,0 +1,25 @@
+forward skill = 80
+Для продолжения нажмите любую клавишу . . . 
+Forward start game!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward not make goal
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward not make goal
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward send ball to defender 
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward send ball to defender 
+Forward tired (power = -5) and send request to doctor
+Forward end game!

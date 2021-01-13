@@ -1,0 +1,76 @@
+forward skill = 58
+Для продолжения нажмите любую клавишу . . . 
+Forward start game!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward make goal!
+Forward told coach about game result 
+Coach say to forward: You make goal! Well done!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward not make goal
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward not make goal
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward not make goal
+Forward tired (power = -25) and send request to doctor
+Forward relaxed. Power = 64
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward make goal!
+Forward told coach about game result 
+Coach say to forward: You make goal! Well done!!!
+
+Forward get ball and start forwarding
+Forward send ball to defender 
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward send ball to defender 
+Forward tired (power = -19) and send request to doctor
+Forward relaxed. Power = 34
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward not make goal
+Forward tired (power = -19) and send request to doctor
+Forward relaxed. Power = 31
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward not make goal
+Forward tired (power = -11) and send request to doctor
+Forward relaxed. Power = 62
+Forward told coach about game result 
+Coach say to forward: You not make goal! Bad, try once more!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward make goal!
+Forward told coach about game result 
+Coach say to forward: You make goal! Well done!!!
+
+Forward get ball and start forwarding
+Forward save ball and continue forwarding
+Forward make goal!
+Forward told coach about game result 
+Channel ANSW_FORW_CHANNEL timeout end, check is game ended
+Forward end game!

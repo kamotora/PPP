@@ -1,0 +1,30 @@
+Coach start game!
+============ Game 0 ended ===========
+============ Game 1 ended ===========
+============ Game 2 ended ===========
+Coach mark forward as tired
+We have tired players, coach not start game
+Coach mark forward as relaxed
+============ Game 3 ended ===========
+Coach mark defender as tired
+We have tired players, coach not start game
+Coach mark defender as relaxed
+============ Game 4 ended ===========
+============ Game 5 ended ===========
+Coach mark forward as tired
+We have tired players, coach not start game
+Coach mark forward as relaxed
+============ Game 6 ended ===========
+Coach mark forward as tired
+We have tired players, coach not start game
+Coach mark forward as relaxed
+============ Game 7 ended ===========
+Coach mark forward as tired
+We have tired players, coach not start game
+Coach mark forward as relaxed
+============ Game 8 ended ===========
+Coach mark defender as tired
+We have tired players, coach not start game
+Coach mark defender as relaxed
+============ Game 9 ended ===========
+=== END GAME!!! Coach end game and say other players go to home! ===

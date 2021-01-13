@@ -1,0 +1,5 @@
+Goalkeeper start game
+goalkeeper skill = 65
+Goalkeeper  playing bad: GOAL!
+Goalkeeper  playing bad: GOAL!
+Для продолжения нажмите любую клавишу . . . Goalkeeper end game!

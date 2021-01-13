@@ -17,7 +17,7 @@ private:
     wstring name;
     void *buffer;
     BOOL writeMessages(vector<Message *> messages);
-    vector<struct Message *> getMessages();
+    vector<Message *> getMessages();
     Signal *endGameSignal;
     functionType terminateFunc;
 public:
